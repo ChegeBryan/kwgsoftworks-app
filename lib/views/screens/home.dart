@@ -11,8 +11,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text('Welcome'),
+      body: Center(
+        child: TextButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/posts');
+          },
+          child: const Text('Posts'),
+        ),
       ),
     );
   }
