@@ -1,6 +1,6 @@
 # kwgsoftworks
 
-A new Flutter project.
+[APK Release](https://github.com/ChegeBryan/kwgsoftworks-app/releases)
 
 ## Getting Started
 
