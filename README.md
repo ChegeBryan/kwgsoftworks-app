@@ -15,3 +15,11 @@ A new Flutter project.
 3. Install dependencies, run `flutter pub get`
 4. Build the apk `flutter build apk`
 5. Install to the connected Android phone, run `flutter install`
+
+### Screenshots
+
+<img src="./screenshots/Screenshot_20211223-211341.png" height="400" />
+<br>
+<img src="./screenshots/Screenshot_20211223-211107.png" height="400" />
+<br>
+<img src="./screenshots/Screenshot_20211223-211119.png" height="400" />
