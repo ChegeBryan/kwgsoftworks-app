@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kwgsoftworks/models/post_model.dart';
+import '../../models/post_model.dart';
+
+import '../../utils/helpers.dart';
 
 class PostItemCard extends StatelessWidget {
   final Post post;
@@ -8,15 +10,48 @@ class PostItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: ListTile(
-        title: Column(
+      elevation: 4,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(post.name),
-            Text(post.email),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 4.0,
+              ),
+              child: Text(
+                post.name.capitalizeFirstofEach,
+                style: const TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 4.0,
+              ),
+              child: Text(
+                post.email,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 4.0,
+              ),
+              child: Text(
+                post.body,
+                style: const TextStyle(
+                  fontSize: 16.0,
+                ),
+              ),
+            ),
           ],
         ),
-        subtitle: Text(post.body),
-        isThreeLine: true,
       ),
     );
   }

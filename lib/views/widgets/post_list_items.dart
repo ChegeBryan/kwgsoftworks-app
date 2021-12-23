@@ -15,7 +15,7 @@ class PostListItems extends StatelessWidget {
       future: Provider.of<PostProvider>(context).fetchPosts(),
       builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasData || snapshot.data!.isNotEmpty) {
+          if (snapshot.data!.isEmpty) {
             return const Center(
               child: Text('No posts found.'),
             );
@@ -23,7 +23,13 @@ class PostListItems extends StatelessWidget {
           return ListView.builder(
             itemCount: snapshot.data!.length,
             itemBuilder: (BuildContext context, int index) {
-              return PostItemCard(post: snapshot.data![index]);
+              return Container(
+                margin: const EdgeInsets.symmetric(
+                  vertical: 8.0,
+                  horizontal: 8.0,
+                ),
+                child: PostItemCard(post: snapshot.data![index]),
+              );
             },
           );
         }

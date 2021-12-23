@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/posts.dart';
+import '../../utils/constants.dart';
 import '../widgets/post_list_items.dart';
 
 class PostsScreen extends StatefulWidget {
@@ -15,18 +16,22 @@ class _PostsScreenState extends State<PostsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Posts'),
+        backgroundColor: kPrimaryColor,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/kwg-webview');
+            },
             icon: const Icon(
               Icons.open_in_new,
             ),
           )
         ],
       ),
-      body: Provider(
+      body: ChangeNotifierProvider(
         create: (context) => PostProvider(),
         child: const PostListItems(),
       ),

@@ -14,9 +14,6 @@ class PostProvider with ChangeNotifier {
   Future<List<Post>> fetchPosts() async {
     List posts;
 
-    postStatus = Status.loading;
-    notifyListeners();
-
     Response response = await get(
       Uri.parse(BASE_URL),
       headers: {'Accept': 'application/json'},
@@ -24,12 +21,12 @@ class PostProvider with ChangeNotifier {
 
     if (response.statusCode == 200) {
       posts = jsonDecode(response.body);
-      postStatus = Status.loaded;
-      notifyListeners();
+      // postStatus = Status.loaded;
+      // notifyListeners();
       return posts.map<Post>((json) => Post.fromJson(json)).toList();
     } else {
-      postStatus = Status.error;
-      notifyListeners();
+      // postStatus = Status.error;
+      // notifyListeners();
       throw Exception('Something went wrong.');
     }
   }
